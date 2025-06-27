@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "nassim";
+  src: url("../public/fonts/nassim-normal.woff") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "nassim-bold";
+  src: url("../public/fonts/nassim-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: "tahoma";
+  src: url("../public/fonts/W tahoma .ttf") format(".ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "yekan";
+  src: url("../public/fonts/yekan-normal.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@theme {
+    --color-primary: #3490dc;
+    --color-secondary: #ffed4a;
+    --color-accent2: #e3344b;
+  }
+
+  .card-shadow {
+    @apply shadow-lg p-6 bg-black rounded-lg;
+  }
+
+  @layer utilities {
+  .rtl-text {
+    direction: rtl;
+    text-align: right;
+  }
+ 
+  .custom-prose p {
+  margin-top: 0.25rem !important; 
+  margin-bottom:0.25rem !important;
+}
+}
+
+
+   body {
+  font-family: "nassim", sans-serif !important;
+}
+
+ html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background:rgb(255,255,255);
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .custom-NewsItem {
+      background:rgb(250,240,250);
+    }  
+  
+ .nav-custom {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.4rem 2rem; 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  height:72px ;
+}
+
+
+
+.SearchBox { 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.Searchbtn { 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.BannerText{
+  color:rgb(228, 235, 14);
+}
