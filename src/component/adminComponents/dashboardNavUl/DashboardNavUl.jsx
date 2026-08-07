@@ -40,7 +40,7 @@ export const DashboardNavUl = () => {
             </div>
             <p className="text-sm md:text-base font-semibold">{username}</p>
           </div>
-          <div className="flex flex-wrap items-center gap-1 text-xs md:text-sm">
+          <div className="flex flex-col items-center gap-1 text-xs md:text-sm">
             <span className="text-blue-300 font-light">نقش:</span>
             {roles.map((role, index) => (
               <span

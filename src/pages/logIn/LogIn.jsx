@@ -21,6 +21,7 @@ export function LogIn() {
   }, [message]);
 
   return (
+
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 md:mt-20 mt-24">
       <div className="w-full max-w-md bg-gradient-to-br from-blue-400 via-blue-700 to-blue-950 rounded-2xl shadow-md p-6 min-h-[500px]">
         {/* دکمه‌های تغییر حالت ورود/ثبت‌نام */}
@@ -42,6 +43,7 @@ export function LogIn() {
             ثبت‌نام
           </button>
         </div>
+        <h1 className="text-gray-950 font-bold">یوزرنیم برای دسترسی به پنل:public2 & pass:public2</h1>
 
         {/* نمایش پیام موفقیت یا خطا */}
         {message && (
@@ -56,14 +58,14 @@ export function LogIn() {
 
         {/* فرم ورود */}
         {isLogin ? (
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4 text-gray-950">
             <input
               type="text"
               name="usernameOrEmail"
               value={formData.usernameOrEmail}
               onChange={handleChange}
               placeholder="نام کاربری یا ایمیل"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <input
               type="password"
@@ -71,7 +73,7 @@ export function LogIn() {
               value={formData.password}
               onChange={handleChange}
               placeholder="رمز عبور"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button
               type="submit"
@@ -82,14 +84,14 @@ export function LogIn() {
           </form>
         ) : (
           /* فرم ثبت‌نام */
-          <form onSubmit={handleRegister} className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4 text-gray-950">
             <input
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
               placeholder="نام کاربری"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <input
               type="email"
@@ -97,7 +99,7 @@ export function LogIn() {
               value={formData.email}
               onChange={handleChange}
               placeholder="ایمیل"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <input
               type="password"
@@ -105,7 +107,7 @@ export function LogIn() {
               value={formData.password}
               onChange={handleChange}
               placeholder="رمز عبور"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <input
               type="password"
@@ -113,7 +115,7 @@ export function LogIn() {
               value={formData.confirmPassword}
               onChange={handleChange}
               placeholder="تکرار رمز عبور"
-              className="w-full px-4 py-2 border bg-gray-100 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border bg-gray-200 border-gray-300 rounded-md text-right placeholder:text-right focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button
               type="submit"
@@ -123,6 +125,8 @@ export function LogIn() {
             </button>
           </form>
         )}
+                <h1 className="text-gray-950 font-bold">یوزرنیم برای دسترسی به پنل:public2 & pass:public2</h1>
+
       </div>
     </div>
   );

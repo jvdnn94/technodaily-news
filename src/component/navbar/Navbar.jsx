@@ -8,7 +8,7 @@ export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false); // ✅ state جدید برای تشخیص ادمین
+  const [isValid, setisValid] = useState(false); // ✅ state جدید برای تشخیص ادمین
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,15 +22,18 @@ export const Navbar = () => {
       setIsLoggedIn(true);
       setUserName(name);
       // بررسی نقش ادمین
-      setIsAdmin(
+      setisValid(
         roles.some(
-          (role) => role === "administrator" || role === "مدیرکل"
-        )
+          (role) =>
+            role === "administrator" ||
+            role === "editor" ||
+            role==="author"
+        ),
       );
     } else {
       setIsLoggedIn(false);
       setUserName("");
-      setIsAdmin(false);
+      setisValid(false);
     }
   };
 
@@ -63,7 +66,7 @@ export const Navbar = () => {
     localStorage.removeItem("userId");
     setIsLoggedIn(false);
     setUserName("");
-    setIsAdmin(false);
+    setisValid(false);
     closeMenu();
     navigate("/");
   };
@@ -75,7 +78,10 @@ export const Navbar = () => {
         <Container>
           <div className="flex justify-between items-center" dir="rtl">
             {/* منوی دسکتاپ */}
-            <ul className="hidden lg:flex gap-8 right-0 text-blue-700 font-bold lg:text-2xl" dir="rtl">
+            <ul
+              className="hidden lg:flex gap-8 right-0 text-blue-700 font-bold lg:text-2xl"
+              dir="rtl"
+            >
               <li>
                 <img src={logo} alt="لوگو" className="h-16 w-52" />
               </li>
@@ -83,9 +89,9 @@ export const Navbar = () => {
                 <Link to="/">صفحه اصلی</Link>
               </li>
               {/* ✅ نمایش پنل مدیریت فقط برای ادمین */}
-              {isAdmin && (
+              {isValid && (
                 <li className="hover:text-blue-950 hover:scale-105 duration-150 mt-4">
-                  <Link to="/admin">پنل مدیریت</Link>
+                  <Link to="/adminpage">پنل مدیریت</Link>
                 </li>
               )}
               <li className="hover:text-blue-950 hover:scale-105 duration-150 mt-4">
@@ -97,7 +103,11 @@ export const Navbar = () => {
             </ul>
 
             {/* فرم جستجو + دکمه ورود/خروج */}
-            <form onSubmit={handleSubmit} className="hidden lg:flex gap-3 items-center mt-1" dir="ltr">
+            <form
+              onSubmit={handleSubmit}
+              className="hidden lg:flex gap-3 items-center mt-1"
+              dir="ltr"
+            >
               {isLoggedIn ? (
                 <div className="flex items-center gap-2">
                   <span className="text-blue-800 font-semibold text-sm bg-blue-100 px-3 py-1 rounded-full">
@@ -125,7 +135,10 @@ export const Navbar = () => {
                   placeholder="...جستجو"
                   className="px-3 py-2 text-right text-black focus:outline-none"
                 />
-                <button type="submit" className="px-4 py-2 text-blue-300 hover:bg-blue-700">
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-blue-300 hover:bg-blue-700"
+                >
                   <i className="fas fa-search text-gray-950" />
                 </button>
               </div>
@@ -133,7 +146,10 @@ export const Navbar = () => {
 
             {/* لوگو و همبرگر موبایل */}
             <img src={logo} alt="لوگو" className="h-12 lg:hidden" />
-            <button className="lg:hidden text-4xl text-blue-700 ml-4 mt-4" onClick={toggleMenu}>
+            <button
+              className="lg:hidden text-4xl text-blue-700 ml-4 mt-4"
+              onClick={toggleMenu}
+            >
               <i className="fas fa-bars"></i>
             </button>
           </div>
@@ -152,16 +168,19 @@ export const Navbar = () => {
           </button>
         </div>
 
-        <ul className="flex flex-col gap-4 text-blue-700 font-bold text-lg px-4" dir="rtl">
+        <ul
+          className="flex flex-col gap-4 text-blue-700 font-bold text-lg px-4"
+          dir="rtl"
+        >
           <li>
             <Link to="/" onClick={closeMenu}>
               صفحه اصلی
             </Link>
           </li>
           {/* ✅ نمایش پنل مدیریت فقط برای ادمین در منوی موبایل */}
-          {isAdmin && (
+          {isValid && (
             <li>
-              <Link to="/admin" onClick={closeMenu}>
+              <Link to="/adminpage" onClick={closeMenu}>
                 پنل مدیریت
               </Link>
             </li>
@@ -210,7 +229,10 @@ export const Navbar = () => {
               placeholder="...جستجو"
               className="px-3 py-2 flex-grow text-right text-black focus:outline-none"
             />
-            <button type="submit" className="px-4 py-2 text-blue-300 hover:bg-blue-700">
+            <button
+              type="submit"
+              className="px-4 py-2 text-blue-300 hover:bg-blue-700"
+            >
               <i className="fas fa-search text-gray-950" />
             </button>
           </div>

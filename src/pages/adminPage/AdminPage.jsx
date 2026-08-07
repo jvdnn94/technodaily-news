@@ -7,10 +7,12 @@ import { AdminUserComponents } from "../../component/adminComponents/adminUserCo
 import { AdminPostComponent } from "../../component/adminComponents/adminPostComponent/AdminPostComponent";
 
 export const AdminPanel = () => {
-  const { activeSection, fetchUsers, fetchPosts, fetchCategories } = useContext(NewsContext);
+  const { activeSection, fetchUsers, fetchPosts, fetchCategories } =
+    useContext(NewsContext);
 
   const roles = JSON.parse(localStorage.getItem("roles")) || [];
   const isAuthor = roles.includes("author") || roles.includes("نویسنده");
+  const isEditor = roles.includes("editor") || roles.includes("ویرایشگر");
   const isAdmin = roles.includes("administrator") || roles.includes("مدیرکل");
 
   // ✅ اسکرول خودکار به بالای صفحه هنگام تغییر بخش
@@ -20,8 +22,8 @@ export const AdminPanel = () => {
 
   useEffect(() => {
     fetchPosts();
+    fetchCategories();
     if (isAdmin) {
-      fetchCategories();
       fetchUsers();
     }
   }, []);
@@ -35,10 +37,15 @@ export const AdminPanel = () => {
 
         <div className="md:col-span-3 mt-2 md:mt-1">
           <div className="mt-8 md:mt-16">
-            <div className="px-2 pb-2 pt-1 mx-auto bg-neutral-200 rounded-2xl max-w-full md:max-w-6xl" dir="rtl">
-              {activeSection === "categories" && isAdmin && <AdminCatComponent />}
+            <div
+              className="px-2 pb-2 pt-1 mx-auto bg-neutral-200 rounded-2xl max-w-full md:max-w-6xl"
+              dir="rtl"
+            >
+              {activeSection === "categories" &&
+                (isAdmin || isEditor || isAuthor) && <AdminCatComponent />}
               {activeSection === "users" && isAdmin && <AdminUserComponents />}
-              {activeSection === "posts" && (isAdmin || isAuthor) && <AdminPostComponent />}
+              {activeSection === "posts" &&
+                (isAdmin || isAuthor || isEditor) && <AdminPostComponent />}
             </div>
           </div>
         </div>

@@ -324,9 +324,8 @@ export const NewsContextProvider = (props) => {
             // هدایت بسته به نقش
             if (
                 roles.includes("administrator") ||
-                roles.includes("مدیرکل") ||
                 roles.includes("author") ||
-                roles.includes("نویسنده")
+                roles.includes("editor")
             ) {
                 navigate("/adminpage");
             } else {
