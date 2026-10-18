@@ -162,7 +162,7 @@ export const Navbar = () => {
               dir="rtl"
             >
               <li>
-                <Link to="/"> <img src={logo} alt="لوگو" className="h-12" /> </Link>
+                <img src={logo} alt="لوگو" className="h-12" />
               </li>
               <li className="mt-2 ml-4 hover:text-blue-950 hover:text-2xl duration-100">
                 <Link to="/">صفحه اصلی</Link>
@@ -206,7 +206,9 @@ export const Navbar = () => {
 
           {/* موبایل/تبلت */}
           <div className="lg:hidden flex justify-between items-center py-2">
-            <img src={logo} alt="لوگو" className="h-12" />
+            <Link to="/">
+              <img src={logo} alt="لوگو" className="h-12" />
+            </Link>
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
