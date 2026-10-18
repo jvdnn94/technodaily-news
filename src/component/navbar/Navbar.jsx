@@ -153,7 +153,7 @@ export const Navbar = () => {
   return (
     <>
       {/* ناوبار — z-index 50 (بالای اورلی، زیر پنل) */}
-     <div className="nav-custom border-2 border-b-black sticky top-0 bg-white z-50" >
+      <div className="nav-custom border-2 border-b-black sticky top-0 bg-white z-">
         <Container>
           {/* دسکتاپ — بدون تغییر */}
           <div className="hidden lg:flex justify-between flex-row-reverse items-center">
@@ -162,7 +162,7 @@ export const Navbar = () => {
               dir="rtl"
             >
               <li>
-                <img src={logo} alt="لوگو" className="h-12" />
+                <Link to="/"> <img src={logo} alt="لوگو" className="h-12" /> </Link>
               </li>
               <li className="mt-2 ml-4 hover:text-blue-950 hover:text-2xl duration-100">
                 <Link to="/">صفحه اصلی</Link>
@@ -175,7 +175,10 @@ export const Navbar = () => {
               </li>
             </ul>
 
-            <form onSubmit={handleSubmit} className="flex gap-3 mt-2 items-center">
+            <form
+              onSubmit={handleSubmit}
+              className="flex gap-3 mt-2 items-center"
+            >
               <Link to="/login">
                 <button className="bg-rose-500 border-rose-950 border-2 py-2 w-24 rounded-md">
                   ورود/ثبت نام
@@ -219,8 +222,7 @@ export const Navbar = () => {
       </div>
 
       {/* Portal به body */}
-      {typeof document !== "undefined" &&
-        createPortal(drawer, document.body)}
+      {typeof document !== "undefined" && createPortal(drawer, document.body)}
     </>
   );
 };
