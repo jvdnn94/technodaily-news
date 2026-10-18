@@ -7,7 +7,7 @@ import Footer from "../footer/Footer"
   return(
     <div className="">
          <Navbar/>
-      <div className="py-2">
+      <div className="pb-2">
         {props.children}
       </div>
       <Footer/>
