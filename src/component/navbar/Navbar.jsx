@@ -108,14 +108,14 @@ export const Navbar = () => {
             صفحه اصلی
           </Link>
           <Link
-            to="/contact-us"
+            to="/contactUs"
             onClick={() => setIsMenuOpen(false)}
             className="block rounded-lg px-3 py-3 text-blue-300 font-bold text-lg hover:bg-gray-800 hover:text-white transition"
           >
             ارتباط با ما
           </Link>
           <Link
-            to="/about-us"
+            to="/aboutUs"
             onClick={() => setIsMenuOpen(false)}
             className="block rounded-lg px-3 py-3 text-blue-300 font-bold text-lg hover:bg-gray-800 hover:text-white transition"
           >
