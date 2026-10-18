@@ -153,10 +153,7 @@ export const Navbar = () => {
   return (
     <>
       {/* ناوبار — z-index 50 (بالای اورلی، زیر پنل) */}
-      <div
-        className="nav-custom border-2 border-b-black relative bg-white"
-        style={{ zIndex: 50 }}
-      >
+     <div className="nav-custom border-2 border-b-black sticky top-0 bg-white z-50" >
         <Container>
           {/* دسکتاپ — بدون تغییر */}
           <div className="hidden lg:flex justify-between flex-row-reverse items-center">
